@@ -9,8 +9,9 @@ import java.util.Scanner;
 
 public class IConnectImpl implements IConnect {
 
-	public Connection con;
+	//동적 쿼리 처리를 위한 객체
 	public PreparedStatement psmt;
+	public Connection con;
 	public ResultSet rs;
 	
 	public IConnectImpl() {
