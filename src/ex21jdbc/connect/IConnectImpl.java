@@ -1,16 +1,22 @@
 package ex21jdbc.connect;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Scanner;
 
 public class IConnectImpl implements IConnect {
 
 	//동적 쿼리 처리를 위한 객체
 	public PreparedStatement psmt;
+	//프로시져 혹은 함수를 호출하기 위한 객체
+	public CallableStatement csmt;
+	public Statement stmt;
+	
 	public Connection con;
 	public ResultSet rs;
 	
@@ -50,6 +56,8 @@ public class IConnectImpl implements IConnect {
 		try {
 			if(con != null) con.close();
 			if(psmt != null) psmt.close();
+			if(csmt != null) csmt.close();
+			if(stmt != null) stmt.close();
 			if(rs != null) rs.close();
 			System.out.println("자원 반납 완료");
 		} 
@@ -75,5 +83,5 @@ public class IConnectImpl implements IConnect {
 		
 		return inputStr;
 	}
-
+	
 }

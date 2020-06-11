@@ -14,7 +14,7 @@ public class InsertQuery extends IConnectImpl{
 	public void execute() {
 		try {
 			//1.쿼리문 준비 : 값의 세팅이 필요한 부분을 ?로 대체한다.
-			String query = "insert into member values (?, ?, ?,?)";
+			String query = "insert into member values (?, ?, ?, ?)";
 			//2.prepared객체 생성 : 생성 시 준비한 쿼리문을 인자로 전달한다.
 			psmt = con.prepareStatement(query);
 			
